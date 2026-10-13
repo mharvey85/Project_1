@@ -1,6 +1,4 @@
 # Project 1 Details
-Important: This project is due 10/15/2026 at 11:59 PM.  No late submissions will be accepted.  
-
 This program will be written in the C++ language, and recap pointers, structures, and dynamic memory allocation.
 
 Create a program that will solve for voltage and current across a capacitor as a function of time.  
