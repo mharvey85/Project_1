@@ -20,7 +20,7 @@ int main(){
     cc.C = C;
     //initial conditions (index 0)
     cc.time[0] = 0.0; 
-    cc.voltage[0] = 0.0;            //possible bug? supposed to be capped around 10V
+    cc.voltage[0] = 0.0;
     cc.current[0] = I_const;            
 
 
@@ -47,8 +47,8 @@ int main(){
         cc.voltage[current_step] = cc.voltage[t] + ((cc.current[t]) * (deltaTime) * (1.0 / cc.C)); 
 
 
-        /* constant voltage*/
-        cv.time[current_step] = (t + 1) * deltaTime;
+        /* constant voltage */
+        cv.time[current_step] = (current_step) * deltaTime;
         cv.voltage[current_step] = V_const; //remains constant
 
         //I(t+1) = I(t) - (I(t) / (R * C)) * dt
@@ -64,7 +64,7 @@ int main(){
 
     //std::cout << std::scientific << std::setprecision(2);
 
-    // Output results every 200 timesteps
+    //printing output every 200 timesteps
     for (int t = 0; t <= num_steps; t += 200){
         std::cout << std::left << std::setw(10) << t << " | "
                   << std::setw(15) << cc.voltage[t] << std::setw(15) << cc.current[t] << " | "
